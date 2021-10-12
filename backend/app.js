@@ -6,7 +6,7 @@ const path = require('path');
 //const Thing = require('./models/Thing'); // Déplacer dans le dossier routes/stuff.js en modifiant ../models/Thing
 
 // Importer le router
-const stuffRoutes = require('./routes/stuff');
+const sauceRoutes = require('./routes/sauce');
 
 // Importer le router user
 const userRoutes = require('./routes/user');
@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use('/images', express.static(path.join(__dirname, 'images'))); // pour renvoyer l'image dans le front end 
 
 // Comme les routes sont dans le dossier routes, on va créer la route pour utiliser le router qu'on a crée dans le fichier stuff.js
-app.use('/api/stuff', stuffRoutes);
+app.use('/api/sauces', sauceRoutes);
 
 // Lorsque que l'on crrée le router, on vient coller les routes dans le fichier /routes/stuff.js
 // //Routes pour CRUD complet (creation, lecture, modification, suppression des ressources de l'application)

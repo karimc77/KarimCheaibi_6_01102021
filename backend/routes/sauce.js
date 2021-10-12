@@ -7,13 +7,13 @@ const router = express.Router();
 
 const auth = require('../middleware/auth'); // Importer le middleware auth pour protèger les routes des middleware
 const multer = require('../middleware/multer-config'); // Importer le middleware multer-config pour enregistrer des fichiers images
-const stuffCtrl = require('../controllers/stuff'); // on met celà a la place de ../models/Thing
+const sauceCtrl = require('../controllers/sauce'); // on met celà a la place de ../models/Thing
 
 // Dans le fichier du dossier routes, on va remplacer app.* par router.* et remplacer /api/stuff par /
 //Routes pour CRUD complet (creation, lecture, modification, suppression des ressources de l'application)
 
 // Route pour créer un thing
-router.post('/', auth, multer, stuffCtrl.createThing);
+router.post('/', auth, multer, sauceCtrl.createSauce);
 
 // Deplacer dans le dossier controllers/stuff.js la fonction uniquement.
 // router.post('/', (req, res, next) => {
@@ -28,7 +28,7 @@ router.post('/', auth, multer, stuffCtrl.createThing);
 
 
 // Route pour modifier un thing
-router.put('/:id', auth, multer, stuffCtrl.modifyThing);
+router.put('/:id', auth, multer, sauceCtrl.modifySauce);
 
 // Deplacer dans le dossier controllers/stuff.js la fonction uniquement.
 // router.put('/:id', (req, res, next) => {
@@ -38,7 +38,7 @@ router.put('/:id', auth, multer, stuffCtrl.modifyThing);
 // });
 
 // Route pour supprimer un thing
-router.delete('/:id', auth, stuffCtrl.deleteThing);
+router.delete('/:id', auth, sauceCtrl.deleteSauce);
 
 // Deplacer dans le dossier controllers/stuff.js la fonction uniquement.
 // router.delete('/:id', (req, res, next) => {
@@ -49,7 +49,7 @@ router.delete('/:id', auth, stuffCtrl.deleteThing);
 
 
 // Route pour recuperer un thing avec son id
-router.get('/:id', auth, stuffCtrl.getOneThing);
+router.get('/:id', auth, sauceCtrl.getOneSauce);
 
 // Deplacer dans le dossier controllers/stuff.js la fonction uniquement.
 // router.get('/:id', (req, res, next) => {
@@ -60,7 +60,7 @@ router.get('/:id', auth, stuffCtrl.getOneThing);
 
 
 // Route pour recuperer tous les things
-router.get('/', auth, stuffCtrl.getAllThings);
+router.get('/', auth, sauceCtrl.getAllSauces);
 
 // Deplacer dans le dossier controllers/stuff.js la fonction uniquement.
 // router.get('/', (req, res, next) => {
