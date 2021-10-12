@@ -1,6 +1,7 @@
 // Configurez le middleware de gestion des fichiers
 
-const multer = require('multer'); // Installer npm install --save multer
+// Installer npm install --save multer
+const multer = require('multer'); 
 
 const MIME_TYPES = {
   'image/jpg': 'jpg',

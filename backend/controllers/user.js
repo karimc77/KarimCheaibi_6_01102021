@@ -1,5 +1,8 @@
-const bcrypt = require('bcrypt'); // Installez npm install --save bcrypt dans backend
-const jwt = require('jsonwebtoken'); // Installez npm install --save jsonwebtoken dans backend
+// Installez npm install --save bcrypt dans backend
+const bcrypt = require('bcrypt');
+
+// Installez npm install --save jsonwebtoken dans backend
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
@@ -20,28 +23,6 @@ exports.signup = (req, res, next) => {
 
 
 // On a utilisé la chaine de caractère TOKEN mais pas securisé
-// exports.login = (req, res, next) => {
-//     User.findOne({ email: req.body.email })
-//       .then(user => {
-//         if (!user) {
-//           return res.status(401).json({ error: 'Utilisateur non trouvé !' });
-//         }
-//         bcrypt.compare(req.body.password, user.password)
-//           .then(valid => {
-//             if (!valid) {
-//               return res.status(401).json({ error: 'Mot de passe incorrect !' });
-//             }
-//             res.status(200).json({
-//               userId: user._id,
-//               token: 'TOKEN'
-//             });
-//           })
-//           .catch(error => res.status(500).json({ error }));
-//       })
-//       .catch(error => res.status(500).json({ error }));
-// };
-
-
 exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
       .then(user => {

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator'); // Installez npm install --save mongoose-unique-validator dans backend
 
+// Installez npm install --save mongoose-unique-validator dans backend
+const uniqueValidator = require('mongoose-unique-validator'); 
 const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }

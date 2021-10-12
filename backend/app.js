@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-//const Thing = require('./models/Thing'); // Déplacer dans le dossier routes/stuff.js en modifiant ../models/Thing
-
 // Importer le router
 const sauceRoutes = require('./routes/sauce');
 
@@ -32,61 +30,12 @@ app.use((req, res, next) => {
 // Utilisation de bodyparser
 app.use(bodyParser.json());
 
-app.use('/images', express.static(path.join(__dirname, 'images'))); // pour renvoyer l'image dans le front end 
+// pour renvoyer l'image dans le front end 
+app.use('/images', express.static(path.join(__dirname, 'images'))); 
 
-// Comme les routes sont dans le dossier routes, on va créer la route pour utiliser le router qu'on a crée dans le fichier stuff.js
-app.use('/api/sauces', sauceRoutes);
-
-// Lorsque que l'on crrée le router, on vient coller les routes dans le fichier /routes/stuff.js
-// //Routes pour CRUD complet (creation, lecture, modification, suppression des ressources de l'application)
-
-// // Route pour créer un thing
-// app.post('/api/stuff', (req, res, next) => {
-//     delete req.body._id;
-//     const thing = new Thing({
-//       ...req.body
-//     });
-//     thing.save()
-//       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-//       .catch(error => res.status(400).json({ error }));
-// });
-
-
-// // Route pour modifier un thing
-// app.put('/api/stuff/:id', (req, res, next) => {
-//     Thing.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-//       .then(() => res.status(200).json({ message: 'Objet modifié !'}))
-//       .catch(error => res.status(400).json({ error }));
-// });
-
-// // Route pour supprimer un thing
-// app.delete('/api/stuff/:id', (req, res, next) => {
-//     Thing.deleteOne({ _id: req.params.id })
-//       .then(() => res.status(200).json({ message: 'Objet supprimé !'}))
-//       .catch(error => res.status(400).json({ error }));
-// });
-
-
-// // Route pour recuperer un thing avec son id 
-// app.get('/api/stuff/:id', (req, res, next) => {
-//     Thing.findOne({ _id: req.params.id })
-//       .then(thing => res.status(200).json(thing))
-//       .catch(error => res.status(404).json({ error }));
-// });
-
-
-// // Route pour recuperer tous les things
-// app.get('/api/stuff', (req, res, next) => {
-//     Thing.find()
-//       .then(things => res.status(200).json(things))
-//       .catch(error => res.status(400).json({ error }));
-// });
-
-
+// Comme les routes sont dans le dossier routes, on va créer la route pour utiliser le router qu'on a crée dans le fichier sauce.js
 // Comme les routes sont dans le dossier routes, on va créer la route pour utiliser le router qu'on a crée dans le fichier user.js
+app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
-
-
-
 
 module.exports = app;
