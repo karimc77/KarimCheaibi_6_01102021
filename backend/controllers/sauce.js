@@ -154,3 +154,28 @@ exports.likeDislike = (req, res, next) => {
       }))
   }
 }
+
+/*  Aide memoire pour comprendre Like & Dislike
+
+- récupérer la sauce qui m'intéresse
+- si l'utilisateur a liké
+  - vérifier s'il est déjà dans la liste des usersLike
+    - si non, l'y ajouter et faire +1 à likes
+    - si oui, ne rien faire
+  - vérifier s'il est déjà dans la liste des usersDislike
+    - si oui, l'y retirer et faire -1 à dislikes
+    - si non, ne rien faire
+- si l'utilisateur a dislike 
+  - vérifier s'il est déjà dans la liste des usersDislike
+    - si non, l'y ajouter et faire +1 à dislikes
+    - si oui, ne rien faire
+  - vérifier s'il est déjà dans la liste des usersLike
+    - si oui, l'y retirer et faire -1 à likes
+    - si non, ne rien faire
+- si l'utilisateur a annulé (0)
+  - vérifier s'il est déjà dans la liste des usersLike
+    - si oui, l'y retirer et faire -1 à likes
+  - vérifier s'il est déjà dans la liste des usersDislike
+    - si oui, l'y retirer et faire -1 à dislikes
+- sauvegarder la sauce
+*/
